@@ -1,21 +1,15 @@
 <context>
-  <input pattern="(hola|buenas) *">
-    <output value="Hola $UserName!" if="full($UserName)"/>
-      <context if="empty($UserName)">
-       <output value="Hola! ¿con quién tengo el gusto?"/>
-  </input>
-    <input pattern="$Text">
+  <input pattern="(hello|hi) *">
+    <output value="Hello $UserName!" if="full($UserName)"/>
+
+    <context if="empty($UserName)">
+      <output value="Hi! What is your name?"/>
+
+      <input pattern="$Text">
         <var name="UserName" value="$Text" scope="user"/>
-        <output value="Hola $UserName! gracias por escribirnos en que puedo ayudarte"/>
+        <output value="Nice to meet you $UserName!"/>
       </input>
-  <input pattern="(hola buenos dias|hola buenos días|hola buen día|buen día|buen dia) *">
-    <output value="Hola buenos días en que puedo ayudarlo ?"/>
-  </input>
-    <input pattern="(hola buenas tardes|hola buenas tardes|buenas tardes) *">
-    <output value="Hola buenas tardes en que puedo ayudarlo ?"/>
-  </input>
-    <input pattern="(hola buenas tardes|hola buenas tardes|buenas tardes) *">
-    <output value="Hola buenos días en que puedo ayudarlo ?"/>
+
+    </context>
   </input>
 </context>
-    
